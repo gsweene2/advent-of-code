@@ -24,7 +24,7 @@ def _get_file_as_list(url) -> List:
 
     headers = {"cookie": f"session={SESSION}"}
     r = requests.get(url, headers=headers)
-    print(f"R CONTENT: {r.content}")
+    r.raise_for_status()
     return r.content.splitlines()
 
 
