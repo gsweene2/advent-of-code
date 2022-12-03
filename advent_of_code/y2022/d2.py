@@ -11,7 +11,7 @@ class GameMove(Enum):
     SCISSORS = 3
 
 
-# X Y Z x A B C
+# A B C x X Y Z
 SCORE_MATRIX = [[3, 6, 0], [0, 3, 6], [6, 0, 3]]
 
 LOSERS = {
