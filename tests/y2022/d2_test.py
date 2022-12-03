@@ -4,7 +4,6 @@ from advent_of_code.y2022.d2 import (
     _calculate_score,
     _determine_move,
     sum_game_scores,
-    sum_game_scores_with_intelligence,
     GameMove,
 )
 
@@ -47,7 +46,7 @@ def test_sum_game_scores(mock__get_file_as_list):
 
 
 @patch("advent_of_code.y2022.d2._get_file_as_list")
-def test_sum_game_scores_with_intelligence(mock__get_file_as_list):
+def test_sum_game_scores_intelligent(mock__get_file_as_list):
     # Arrange
     input_list = [
         b"A Y",
@@ -57,7 +56,7 @@ def test_sum_game_scores_with_intelligence(mock__get_file_as_list):
     mock__get_file_as_list.return_value = input_list
 
     # Act
-    r = sum_game_scores_with_intelligence(input_list)
+    r = sum_game_scores(input_list, intelligent=True)
 
     # Assert
     assert 12 == r
