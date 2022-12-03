@@ -51,13 +51,10 @@ def _parse_move(move) -> GameMove:
 
 
 def _determine_move(opponent, own) -> GameMove:
-    # Lose Case
     if own in ("X"):
         return LOSERS.get(_parse_move(opponent))
-    # Draw Case
     if own in ("Y"):
         return _parse_move(opponent)
-    # Win Case
     if own in ("Z"):
         return WINNERS.get(_parse_move(opponent))
     m = f"Unexpected move: '{own}'"
