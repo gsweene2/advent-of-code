@@ -4,9 +4,9 @@ URL = "https://adventofcode.com/2022/day/3/input"
 
 
 def count_priorities(input_url):
-    inputs_list = _get_file_as_list(input_url)
+    rucksacks_list = _get_file_as_list(input_url)
     total = 0
-    for input in inputs_list:
+    for input in rucksacks_list:
         i_str = input.decode("utf-8")
         h1, h2 = i_str[: len(i_str) // 2], i_str[len(i_str) // 2 :]
         r = set(list(h1)).intersection(set(list(h2)))
@@ -15,9 +15,9 @@ def count_priorities(input_url):
 
 
 def count_badge_priorities(input_url):
-    inputs_list = _get_file_as_list(input_url)
+    rucksacks_list = _get_file_as_list(input_url)
     total, rucksacks_group = 0, []
-    for input in inputs_list:
+    for input in rucksacks_list:
         i_str = input.decode("utf-8")
         if not rucksacks_group:
             rucksacks_group = [i_str]
