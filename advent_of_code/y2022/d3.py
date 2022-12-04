@@ -8,8 +8,8 @@ def count_priorities(input_url):
     total = 0
     for input in inputs_list:
         i_str = input.decode("utf-8")
-        halves = i_str[: len(i_str) // 2], i_str[len(i_str) // 2 :]
-        r = set(list(halves[0])).intersection(set(list(halves[1])))
+        h1, h2 = i_str[: len(i_str) // 2], i_str[len(i_str) // 2 :]
+        r = set(list(h1)).intersection(set(list(h2)))
         total += _get_priority(r)
     return total
 
