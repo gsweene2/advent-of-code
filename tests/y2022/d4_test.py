@@ -1,6 +1,11 @@
 from unittest.mock import patch
 
-from advent_of_code.y2022.d4 import count_overlaps, _is_contained, _parse_assignment
+from advent_of_code.y2022.d4 import (
+    count_overlaps,
+    _is_any_overlap,
+    _is_contained,
+    _parse_assignment,
+)
 
 
 def test__is_contained() -> None:
@@ -10,6 +15,15 @@ def test__is_contained() -> None:
     assert _is_contained(2, 8, 3, 7)
     assert _is_contained(6, 6, 4, 6)
     assert not _is_contained(2, 6, 4, 8)
+
+
+def test__is_any_overlap() -> None:
+    assert not _is_any_overlap(2, 4, 6, 8)
+    assert not _is_any_overlap(2, 3, 4, 5)
+    assert _is_any_overlap(5, 7, 7, 9)
+    assert _is_any_overlap(2, 8, 3, 7)
+    assert _is_any_overlap(6, 6, 4, 6)
+    assert _is_any_overlap(2, 6, 4, 8)
 
 
 def test__parse_assignment() -> None:
@@ -35,3 +49,23 @@ def test_count_overlaps(mock__get_file_as_list):
 
     # Assert
     assert 2 == r
+
+
+@patch("advent_of_code.y2022.d4._get_file_as_list")
+def test_count_overlaps_any_overlap(mock__get_file_as_list):
+    # Arrange
+    input_list = [
+        b"2-4,6-8",
+        b"2-3,4-5",
+        b"5-7,7-9",
+        b"2-8,3-7",
+        b"6-6,4-6",
+        b"2-6,4-8",
+    ]
+    mock__get_file_as_list.return_value = input_list
+
+    # Act
+    r = count_overlaps("https://some-fake-url.com/input", full_overlap=False)
+
+    # Assert
+    assert 4 == r
