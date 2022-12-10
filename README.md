@@ -17,3 +17,9 @@ poetry shell
 poetry install
 poetry run pytest
 ```
+
+## Add Dependencies
+
+```
+poetry add mypy
+```
