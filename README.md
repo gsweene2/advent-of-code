@@ -23,3 +23,10 @@ poetry run pytest
 ```
 poetry add mypy
 ```
+
+## Start a new coding day
+
+```
+poetry run python tools/new_day.py yyyy d
+# poetry run python tools/new_day.py 2022 5
+```
