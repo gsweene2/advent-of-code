@@ -30,11 +30,11 @@ if __name__ == "__main__":
     print("Solution 2:" + r)
 """
 
-print(f"Current dir is {os.getcwd() }")
+print(f"Current dir is {os.getcwd()}...")
 
 sln_file = f"advent_of_code/y{year}/d{day}.py"
 
-print(f"Creating file at {sln_file}")
+print(f"Creating solution file at {sln_file}...")
 
 os.makedirs(os.path.dirname(sln_file), exist_ok=True)
 
@@ -81,5 +81,9 @@ def test_solution_2(mock__get_file_as_list):
 
 test_file = f"tests/y{year}/d{day}_test.py"
 
+print(f"Creating test file at {test_file}...")
+
 with open(test_file, "w") as f:
     f.write(test)
+
+print("Done! Check `git diff --name-only` to verify correct files.")
